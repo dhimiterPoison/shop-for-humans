@@ -45,7 +45,7 @@ export function AccountMenu() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
           <User className="mr-2 h-4 w-4" />
-          <span>{session.user?.name || 'Account'}</span>
+          <span>{session.user?.name ?? 'Account'}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           {theme === 'dark' ? (

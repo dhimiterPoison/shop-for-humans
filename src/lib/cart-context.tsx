@@ -31,7 +31,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const newTotalPrice = cart.reduce((total, item) => {
-      return total + (item.price.amount || 0) * item.quantity
+      return total + (item.price.amount ?? 0) * item.quantity
     }, 0)
     setTotalPrice(newTotalPrice)
   }, [cart])

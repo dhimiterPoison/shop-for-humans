@@ -144,7 +144,7 @@ export function Cart() {
             <Button 
               variant="default" 
               size="sm" 
-              disabled={cart.length === 0 || isCheckingOut}
+              disabled={cart.length === 0 ? isCheckingOut : false}
               onClick={handleCheckout}
             >
               {isCheckingOut ? 'Processing...' : 'Proceed to Checkout'}

@@ -12,7 +12,7 @@ export function Hero() {
       /> */}
       <div className="z-10 flex h-full flex-col items-center justify-center gap-2 p-8 text-center">
         <h1 className="text-4xl font-bold tracking-tight">
-          Life is <u>more</u> than <i>just</i> survival.
+          Life is <u>more</u> than <i>just</i> survival.awdawd
         </h1>
         <p className="text-muted-foreground text-lg">
           Surround yourself with beauty, decor your spaces.
