@@ -1,5 +1,10 @@
 'use client'
 
+import { LogOut, Moon, Sun, User } from 'lucide-react'
+import { signOut, useSession } from "next-auth/react"
+import { useTheme } from "next-themes"
+import Link from 'next/link'
+import { useEffect, useState } from "react"
 import { Button } from "~/components/ui/button"
 import {
   DropdownMenu,
@@ -7,11 +12,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu"
-import { User, LogOut, Settings, Sun, Moon } from 'lucide-react'
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
-import { useSession, signOut } from "next-auth/react"
-import Link from 'next/link'
 
 export function AccountMenu() {
   const { setTheme, theme } = useTheme()

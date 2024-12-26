@@ -1,10 +1,10 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { productSchema } from './schema'
-import { z } from 'zod'
+import type { productSchema } from './schema'
+import type { z } from 'zod'
 
-type Product = z.infer<typeof productSchema>
+export type Product = z.infer<typeof productSchema>
 
 export interface CartItem extends Product {
   quantity: number
@@ -24,7 +24,7 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
+export function CartProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const [cart, setCart] = useState<CartItem[]>([])
   const [favorites, setFavorites] = useState<Product[]>([])
   const [totalPrice, setTotalPrice] = useState(0)

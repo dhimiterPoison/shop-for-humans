@@ -4,8 +4,8 @@ import { Button } from '~/components/ui/button';
 import { checkoutAction } from '~/lib/actions';
 import { useActionState } from 'react';
 import { useCart } from '~/lib/cart-context';
-import { productSchema } from '~/lib/schema';
-import { z } from 'zod';
+import type { productSchema } from '~/lib/schema';
+import type { z } from 'zod';
 import { Heart, ShoppingCart } from 'lucide-react';
 import {
 	Tooltip,
@@ -17,10 +17,10 @@ import { useToast } from '~/hooks/use-toast';
 export function ProductBuyForm({
 	product,
 	compact = false,
-}: {
+}: Readonly<{
 	product: z.infer<typeof productSchema>;
 	compact?: boolean;
-}) {
+}>) {
 	const [, formAction, isPending] = useActionState(checkoutAction, null);
 	const { addToCart, addFavorite, removeFavorite, isFavorite } = useCart();
 	const { toast } = useToast();
@@ -39,10 +39,10 @@ export function ProductBuyForm({
 	return (
 		<form
 			action={formAction}
-			className='flex flex-wrap items-center justify-end w-full gap-2'
+			className='flex w-full flex-wrap items-center justify-end gap-2'
 		>
 			<input type='hidden' name='priceId' value={product.price.id} />
-			
+
 			<Button
 				type='submit'
 				size={buttonSize}
@@ -51,7 +51,7 @@ export function ProductBuyForm({
 			>
 				{isPending ? 'Please wait' : 'Buy Now'}
 			</Button>
-      <div className='flex grow'></div>
+			<div className='flex grow'></div>
 			<Button
 				type='button'
 				size={buttonSize}
@@ -59,9 +59,11 @@ export function ProductBuyForm({
 				className={compact ? 'h-8 px-2 py-1' : ''}
 				onClick={(e) => {
 					e.preventDefault();
-					isFavorite(product.id)
-						? removeFavorite(product.id)
-						: addFavorite(product);
+					if (isFavorite(product.id)) {
+						removeFavorite(product.id);
+					} else {
+						addFavorite(product);
+					}
 				}}
 			>
 				<Heart
@@ -72,7 +74,7 @@ export function ProductBuyForm({
 						? 'Remove from favorites'
 						: 'Add to favorites')}
 			</Button>
-      <Tooltip>
+			<Tooltip>
 				<TooltipTrigger asChild>
 					<Button
 						type='button'

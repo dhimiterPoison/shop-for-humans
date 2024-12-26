@@ -1,6 +1,6 @@
 import { productListSchema } from '~/lib/schema'
 import { stripe } from '~/lib/stripe'
-import Stripe from 'stripe'
+import type Stripe from 'stripe'
 
 export async function getProducts(
   options: Pick<Stripe.ProductListParams, 'limit'> = {

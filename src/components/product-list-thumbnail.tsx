@@ -1,14 +1,14 @@
 import { ProductBuyForm } from '~/components/product-buy-form'
-import { productSchema } from '~/lib/schema'
+import type { productSchema } from '~/lib/schema'
 import Image from 'next/image'
 import Link from 'next/link'
-import { z } from 'zod'
+import type{ z } from 'zod'
 
 export function ProductListThumbnail({
 product,
-}: {
+}: Readonly<{
 product: z.infer<typeof productSchema>
-}) {
+}>) {
 return (
   <div className="bg-background group p-2 rounded-2xl">
     <Link href={`/product/${product.id}`} className="block">

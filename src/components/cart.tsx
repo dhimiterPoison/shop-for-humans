@@ -156,7 +156,7 @@ export function Cart() {
   )
 }
 
-function CartIcon({ className, ...props }: React.SVGProps<SVGSVGElement>) {
+function CartIcon({ className, ...props }: Readonly<React.SVGProps<SVGSVGElement>>) {
   return (
     <svg
       className={className}

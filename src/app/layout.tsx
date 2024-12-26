@@ -16,7 +16,7 @@ export const metadata = {
     'A template to showcase Stripe products, Next.js Server Actions, and a checkout flow.',
 }
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body

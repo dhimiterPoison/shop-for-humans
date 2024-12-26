@@ -43,7 +43,7 @@ export function SiteHeader() {
 	);
 }
 
-function SearchBar({ className }: { className?: string }) {
+function SearchBar({ className }: Readonly<{ className?: string }>) {
 	return (
 		<form className={cn('relative max-w-lg lg:max-w-xs', className)}>
 			<Search className='absolute left-2 top-2 size-4 text-muted-foreground' />

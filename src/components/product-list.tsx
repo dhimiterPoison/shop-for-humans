@@ -3,9 +3,9 @@ import {
   ProductListThumbnail,
   ProductListThumbnailSkeleton,
 } from '~/components/product-list-thumbnail'
-import { productListSchema } from '~/lib/schema'
+import type { productListSchema } from '~/lib/schema'
 import Link from 'next/link'
-import { z } from 'zod'
+import type { z } from 'zod'
 
 export function ProductList({
   list,

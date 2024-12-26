@@ -10,7 +10,7 @@ import {
 } from "~/components/ui/sheet"
 import { ScrollArea } from "~/components/ui/scroll-area"
 import { Heart, ShoppingCart } from 'lucide-react'
-import { useCart } from "~/lib/cart-context"
+import { Product, useCart } from "~/lib/cart-context"
 import Image from "next/image"
 import Link from "next/link"
 import { useToast } from "~/hooks/use-toast"
@@ -20,7 +20,7 @@ export function FavoritesMenu() {
   const { favorites, removeFavorite, addToCart } = useCart()
   const { toast } = useToast()
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     addToCart(product)
     toast({
       title: "Added to cart",
