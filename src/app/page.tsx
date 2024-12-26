@@ -6,7 +6,7 @@ export default async function Page() {
   const products = await getProducts()
 
   return (
-    <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4">
+    <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-2">
       <Hero />
       <ProductList list={products} />
     </div>

@@ -17,7 +17,7 @@ export async function createCheckoutSession({ priceId, lineItems }: CheckoutSess
       ? [{ price: priceId, quantity: 1 }] 
       : lineItems,
     mode: 'payment',
-    success_url: `${baseUrl}/success`,
+    success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${baseUrl}/canceled`,
   })
 
