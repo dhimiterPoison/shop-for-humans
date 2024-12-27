@@ -1,7 +1,7 @@
 
 export function Hero() {
   return (
-    <div className="from-muted/20 to-muted/5 border relative flex h-96 w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b">
+    <div className="from-muted/20 to-muted/5 border relative flex min-h-48 md:h-80  w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b">
       {/* <Image 
         src='/hero-1.jpg'
         className="h-full w-full object-cover bg-center  absolute opacity-70"

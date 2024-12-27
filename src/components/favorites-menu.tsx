@@ -51,7 +51,7 @@ export function FavoritesMenu() {
           <span className="sr-only">Favorites</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
+      <SheetContent side="right" className="w-[calc(100vw*0.8)] md:w-[calc(100vw*0.5)] lg:w-[calc(100vw*0.4)] p-0">
         <SheetHeader className="p-4 pb-2">
           <SheetTitle>Favorites</SheetTitle>
         </SheetHeader>

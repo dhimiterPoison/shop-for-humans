@@ -14,11 +14,16 @@ import { Logo } from '~/components/logo';
 import { AccountMenu } from '~/components/account-menu';
 import { FavoritesMenu } from '~/components/favorites-menu';
 
+const routes = [
+	{ id: 0, path: 'prints', label: 'Analog photo prints' },
+	{ id: 1, path: 'experiences', label: 'Experiences' },
+];
+
 export function SiteHeader() {
 	return (
-		<header className='sticky top-0 z-20  bg-background'>
+		<header className='sticky top-0 z-20 bg-background'>
 			<div className='mx-auto flex h-16 max-w-screen-xl items-center gap-4 px-4'>
-				<div className='flex items-center gap-3 p-2 pr-7 h-full'>
+				<div className='flex h-full items-center gap-3 p-2'>
 					<Sidebar />
 					<Logo className='size-8' />
 					<Link
@@ -29,8 +34,11 @@ export function SiteHeader() {
 					</Link>
 				</div>
 				<nav className='hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex [&_a]:transition-colors hover:[&_a]:text-foreground'>
-					<Link href='#'>Analog photography prints</Link>
-					<Link href='#'>Experiences</Link>
+					{routes.map((route) => (
+						<Link key={route.id} href={route.path}>
+							{route.label}
+						</Link>
+					))}
 				</nav>
 				<div className='ml-auto flex items-center gap-2'>
 					<SearchBar className='hidden sm:block' />
@@ -75,21 +83,18 @@ function Sidebar() {
 				<TooltipContent align='start'>Menu</TooltipContent>
 				<SheetContent
 					side='left'
-					className='flex w-full flex-col p-4 pt-12 md:w-3/4'
+					className='flex flex-col p-4 pt-12 w-[calc(100vw*0.8)]'
 				>
 					<SearchBar className='w-full sm:hidden' />
-					<Button className='justify-start' variant='ghost'>
-						<Link href='#'>Women</Link>
-					</Button>
-					<Button className='justify-start' variant='ghost'>
-						<Link href='#'>Men</Link>
-					</Button>
-					<Button className='justify-start' variant='ghost'>
-						<Link href='#'>Kids</Link>
-					</Button>
-					<Button className='justify-start' variant='ghost'>
-						<Link href='#'>Accessories</Link>
-					</Button>
+					{routes.map((route) => (
+						<Button
+							key={route.id}
+							className='justify-start'
+							variant='ghost'
+						>
+							<Link href={route.path}>{route.label}</Link>
+						</Button>
+					))}
 				</SheetContent>
 			</Tooltip>
 		</Sheet>

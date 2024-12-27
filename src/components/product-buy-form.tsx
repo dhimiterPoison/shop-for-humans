@@ -39,7 +39,7 @@ export function ProductBuyForm({
 	return (
 		<form
 			action={formAction}
-			className='flex w-full flex-wrap items-center justify-end gap-2'
+			className='flex w-full flex-wrap items-center justify-end md:justify-start gap-2'
 		>
 			<input type='hidden' name='priceId' value={product.price.id} />
 
@@ -51,7 +51,7 @@ export function ProductBuyForm({
 			>
 				{isPending ? 'Please wait' : 'Buy Now'}
 			</Button>
-			<div className='flex grow'></div>
+			<div className='flex grow md:hidden'></div>
 			<Button
 				type='button'
 				size={buttonSize}
