@@ -9,9 +9,9 @@ import type { z } from 'zod'
 
 export function ProductList({
   list,
-}: {
+}: Readonly<{
   list: z.infer<typeof productListSchema>
-}) {
+}>) {
   return (
     <div className="relative mb-8 flex flex-col items-center gap-8">
       {list.data.length > 0 ? (
